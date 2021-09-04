@@ -27,24 +27,23 @@ function getUserDetails(data) {
 }
 makeAJAXCall("GET", getURL, getUserDetails);
 
-const deleteURL = "http://localhost:3000/EmployeePayrollDB/3";
+const deleteURL = "http://localhost:3000/EmployeePayrollDB/10";
 function userDeleted(data) {
     console.log("User Deleted: " +data);
 }
 makeAJAXCall("DELETE", deleteURL, userDeleted, false);
 
 const postURL = "http://localhost:3000/EmployeePayrollDB";
-const emplData = {"id": 4,
-"_name": "Rahul",
+const emplData = {"id":4 ,
+"_name": "Rahul Deshpande",
 "_gender": "male",
 "_department": [
-  "Engineering",
-  "Finance"
+  "Sales"
 ],
-"_salary": "500000",
-"_startDate": "29 June 2018",
-"_note": "All In One",
-"_profilePic": "../assets/profile-images/Ellipse -8.png"};
+"_salary": "400000",
+"_startDate": "29 june 2018",
+"_note": "",
+"_profilePic": "../assets/profile-images/Ellipse -7.png"};
 function userAdded(data) {
     console.log("User Added: " +data);
 }

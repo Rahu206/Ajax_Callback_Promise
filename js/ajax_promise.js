@@ -1,10 +1,10 @@
 let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-function makeAJAXCall(methodType, url, callback, async = true, data = null) {
+function makePromiseCall(methodType, url,async = true, data = null) {
     return new Promise(function (resolve,reject){
         let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-        console.log("State Changed Called. Ready State: " +xhr.readyState+ " Status: " +xhr.status);
+        console.log(methodType + "State Changed Called. Ready State: " +xhr.readyState+ " Status: " +xhr.status);
         if (xhr.status.toString().match('^[2][0-9]{2}$')) {
             resolve(xhr.responseText);
         } else if (xhr.status.toString().match('^[4,5][0-9]{2}$')) {
@@ -33,7 +33,7 @@ makePromiseCall("GET",getURL,true)
     .catch(error => console.log("GET Error Status: "
                     +JSON.stringify(error)));
 
-const deleteURL = "http://localhost:3000/EmployeePayrollDB/3";
+const deleteURL = "http://localhost:3000/EmployeePayrollDB/11";
 makePromiseCall("DELETE", deleteURL, false) 
     .then(responseText => {
         console.log("User Deleted: " +responseText);
